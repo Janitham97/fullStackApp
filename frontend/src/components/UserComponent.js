@@ -4,8 +4,8 @@ import UserServices from "../services/UserServices";
 
 class UserComponent extends React.Component{
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             users:[]
         }
@@ -18,6 +18,7 @@ class UserComponent extends React.Component{
     }
 
     render() {
+        return(
         <div>
             <h1 className="text-center">Users List</h1>
             <table className="table table-striped"></table>
@@ -28,11 +29,22 @@ class UserComponent extends React.Component{
                 <td>Last Name</td>
                 <td>Email</td>
                 <tbody>
-
+                {
+                    this.state.users.map(
+                        users =>
+                            <tr key={user.id}>
+                                <td>{user.id}</td>
+                                <td>{user.firstName}</td>
+                                <td>{user.lastName}</td>
+                                <td>{user.email}</td>
+                            </tr>
+                    )
+                }
                 </tbody>
             </tr>
             </thead>
         </div>
+        )
     }
 }
 

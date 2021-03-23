@@ -5,7 +5,7 @@ const USERS_RESTAPI_URL = 'http://localhost/8080/api/users';
 class UserServices{
 
     getUsers(){
-        axios.get(USERS_RESTAPI_URL);
+        return axios.get(USERS_RESTAPI_URL);
     }
 }
 
